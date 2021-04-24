@@ -58,7 +58,7 @@ def main():
 	# Parsing multiple JSON objects from a file
 	# https://pynative.com/python-parse-multiple-json-objects-from-file/
 	CloudTrail_Events_List = []
-	with open('/home/echo/Documents/ADS_AWS_Public_S3_Bucket/aws_cloudtrail_events.json') as f:
+	with open('aws_cloudtrail_events.json') as f:
 	    for cloudtrailEvent in f:
 	        eventDict = json.loads(cloudtrailEvent)
 	        CloudTrail_Events_List.append(eventDict)
