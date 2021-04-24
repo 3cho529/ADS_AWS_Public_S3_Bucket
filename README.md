@@ -28,8 +28,8 @@ A blind spot will occur if any of the assumptions are violated. For instance, th
 # False Positives
 The detection does not have any known false positives, however, it is possible the bucket was made public for legitimate reasons (see below) even though the action violates AWS best practices:
 
-* Cloud engineer testing tool access and closes the public permissions within 24 hours.
-* Cloud engineer needed to share bucket objects with trusted entities outside the Accounts and makes the bucket public for a few days. A [presigned URL with S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html) should have been used.
+* Cloud engineer was testing a dev tool and closes the public permissions within shortly afterwards.
+* Cloud engineer needed to share bucket objects with trusted entities outside the account and makes the bucket public for a few days. A [presigned URL with S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html) should have been used.
 
 
 # Priority
