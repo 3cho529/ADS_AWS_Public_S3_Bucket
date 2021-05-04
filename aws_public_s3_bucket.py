@@ -56,7 +56,7 @@ def cli_rule(event):
 			event_flag = True	 				
 	return (event_flag)		 
 
-# Defines message for the analyst
+# Defines message for the analyst as a formatted string
 def title(event):
     return (
         "An AWS S3 bucket was made public. Review details below and follow response actions. \n"
@@ -71,26 +71,26 @@ def main():
 	# Parsing multiple JSON objects from a file
 	# https://pynative.com/python-parse-multiple-json-objects-from-file/
 	# Initializing an empty list to append the dictionary events
-	CloudTrail_Events_List = []
+	Public_Bucket_Events_List = []
+
+	all_events=0 # initializing event count
+
 	with open('aws_cloudtrail_events.json') as f:
-	    for cloudtrailEvent in f: # loop through the JSON object
-	        eventDict = json.loads(cloudtrailEvent) # convert JSON object to a dictionary 
-	        CloudTrail_Events_List.append(eventDict) # add dictionary to the list
+		for cloudtrailEvent in f: # loop through the JSON object
+			event = json.loads(cloudtrailEvent) # convert JSON object to a dictionary 
+			all_events += 1
+			
+			if gui_rule(event) == True:
+				print(title(event)) # print analyst message to console
+				print("Bucket was made public via the Console / GUI.")
+				Public_Bucket_Events_List.append(event) # add dictionary to the list
 
-	event_count=0 # initializing event count
+			if cli_rule(event) == True:
+				print(title(event)) # print analyst message to console
+				print("Bucket was made public via the CLI.")
+				Public_Bucket_Events_List.append(event) # add dictionary to the list
 
-	for event in CloudTrail_Events_List: # loop through list of event dictionaries
-
-		if gui_rule(event) == True:
-			event_count+=1
-			print(title(event))
-			print("Bucket was made public via the Console / GUI.")
-		if cli_rule(event) == True:
-			event_count+=1
-			print(title(event))
-			print("Bucket was made public via the CLI.")
-
-	print(f"{event_count} out of {len(CloudTrail_Events_List)} events triggered the public bucket detection.")
+	print(f"{len(Public_Bucket_Events_List)} out of {all_events} events triggered the public bucket detection.")
 
 if __name__ == "__main__":
 	main()
