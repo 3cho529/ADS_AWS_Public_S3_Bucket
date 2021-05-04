@@ -73,7 +73,9 @@ def main():
 	# Initializing an empty list to append the dictionary events
 	Public_Bucket_Events_List = []
 
-	all_events=0 # initializing event count
+	all_events = 0 # initializing event count
+
+	alert_file = open("s3_alert_file.txt", "w") # opening a file for writing alerts to in write mode. 
 
 	with open('aws_cloudtrail_events.json') as f:
 		for cloudtrailEvent in f: # loop through the JSON object
@@ -81,14 +83,20 @@ def main():
 			all_events += 1
 			
 			if gui_rule(event) == True:
+				alert_file.write(title(event)) # writing the message to the file
+				alert_file.write("Bucket was made public via the Console / GUI.")
 				print(title(event)) # print analyst message to console
-				print("Bucket was made public via the Console / GUI.")
+				print("Bucket was made public via the Console / GUI.\n")
 				Public_Bucket_Events_List.append(event) # add dictionary to the list
 
 			if cli_rule(event) == True:
+				alert_file.write(title(event)) # writing the message to the file
+				alert_file.write("Bucket was made public via the CLI.")
 				print(title(event)) # print analyst message to console
-				print("Bucket was made public via the CLI.")
+				print("Bucket was made public via the CLI.\n")
 				Public_Bucket_Events_List.append(event) # add dictionary to the list
+
+	alert_file.close()
 
 	print(f"{len(Public_Bucket_Events_List)} out of {all_events} events triggered the public bucket detection.")
 

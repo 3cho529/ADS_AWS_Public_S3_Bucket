@@ -1,0 +1,15 @@
+An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the CLI.An AWS S3 bucket was made public. Review details below and follow response actions. 
+AWS Account: 234089239809 
+Bucket Name: bilal-test-bucketBucket was made public via the Console / GUI.
